@@ -16,15 +16,15 @@ def backtrack(grids, size, num, neighbors):
         print('Solution found')
         return True
     nexts = select_next_grid(grids, neighbors, size, num)
-    for next in nexts:
-        grids[next] = 1 # mark a queen occupy this grid
+    for next_ in nexts:
+        grids[next_] = 1 # mark a queen occupy this grid
         num += 1
         # print_solution(grids, size)
         found = backtrack(grids, size, num, neighbors)
         if found:
             return found
         # failure
-        grids[next] = 0
+        grids[next_] = 0
         num -= 1
     return False
 
